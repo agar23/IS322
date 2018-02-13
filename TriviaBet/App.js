@@ -1,38 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 
-type Props = {};
 export default class App extends Component<Props> {
+
+    _callGoogle(){
+      GoogleSignin.configure({})
+        .then(() => {
+          GoogleSignin.signIn()
+            .then((user) => {
+              alert('Hey '+user.givenName+' you are succesfully logged in!')
+            })
+            .catch((err) => {
+            console.log('WRONG SIGNIN', err);
+            })
+            .done();
+      });
+
+    }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to TriviaBet!
-        </Text>
-        <Text style={styles.instructions}>
-          
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <TouchableOpacity onPress = {this._callGoogle.bind(this)}>
+          <View style = {styles.button}>
+            <Text style = {styles.buttonText}> Google Sign In</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -45,14 +46,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  button: {
+    justifyContent: 'center',
+    alignItems:'center',
+    padding: 10,
+    borderRadius:10,
+    backgroundColor:'rgb(202,0,0)'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  buttonText: {
+    fontSize:16,
+    fontWeight :'bold',
+    color:'#FFFFFF'
+  }
 });
