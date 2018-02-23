@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import PropTypes from 'prop-types';
+var { FBLogin, FBLoginManager } = require('react-native-facebook-login');
 
 const title = "TriviaBet \nTrivia with Stakes";
 const title2 = "Trivia";
@@ -34,6 +36,7 @@ export default class App extends Component<Props> {
     }
 
   render() {
+    var _this = this;
     return (
       <View style={styles.container}>
 
@@ -44,19 +47,56 @@ export default class App extends Component<Props> {
         </TouchableOpacity>
 
         <GoogleSigninButton
-         style={{width: 180, height: 54, position: 'absolute', bottom:40, left:15}}
+         style={{width: 165, height: 54, position: 'absolute', bottom:40, left:15}}
          size={GoogleSigninButton.Size.Standar}
          color={GoogleSigninButton.Color.Light}
          onPress={this._callGoogle.bind(this)}
          />
 
+      <View style={styles.FBbutton1}>
+        <FBLogin
+        style={styles.FBbutton}
+        ref={(fbLogin) => { this.fbLogin = fbLogin }}
+        permissions={["email","user_friends"]}
+        loginBehavior={FBLoginManager.LoginBehaviors.Native}
+        onLogin={function(data){
+          alert('Hey '+data.profile.name+' you are succesfully logged in!')
+          console.log(data);
+          _this.setState({ user : data.credentials });
+          }}
+          onLogout={function(){
+            console.log("Logged out.");
+            _this.setState({ user : null });
+          }}
+          onLoginFound={function(data){
+            console.log("Existing login found.");
+            console.log(data);
+            _this.setState({ user : data.credentials });
+          }}
+          onLoginNotFound={function(){
+            console.log("No user logged in.");
+            _this.setState({ user : null });
+          }}
+          onError={function(data){
+            console.log("ERROR");
+            console.log(data);
+          }}
+          onCancel={function(){
+            console.log("User cancelled.");
+          }}
+          onPermissionsMissing={function(data){
+            console.log("Check permissions!");
+            console.log(data);
+          }}
+          />
+      </View>
 
-        <Text style={styles.index}>
-          {title2}
-          <Text style={{color: '#f77f07'}}>{title3}</Text>
-          {title4}
-          <Text style={{color: '#f77f07'}}>{title5}</Text>
-        </Text>
+      <Text style={styles.index}>
+        {title2}
+        <Text style={{color: '#f77f07'}}>{title3}</Text>
+        {title4}
+        <Text style={{color: '#f77f07'}}>{title5}</Text>
+      </Text>
       </View>
     );
   }
@@ -76,6 +116,17 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
     top: -200,
+  },
+  FBbutton: {
+    flex: 1,
+    backgroundColor: '#3B5998',
+    padding: 13,
+    alignItems: 'center'
+  },
+  FBbutton1: {
+    position: 'absolute',
+    bottom:43,
+    left:185
   },
 
 });

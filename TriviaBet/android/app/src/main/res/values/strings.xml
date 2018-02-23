@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">TriviaBet</string>
+    <string name="facebook_app_id">415608368895052</string>
+    <string name="fb_login_protocol_scheme">fb415608368895052</string>
 </resources>
