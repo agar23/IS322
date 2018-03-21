@@ -4,6 +4,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   TouchableOpacity
 } from 'react-native';
 
@@ -65,7 +66,7 @@ export default class App extends Component<Props> {
           _this.setState({ user : data.credentials });
           }}
           onLogout={function(){
-            console.log("Logged out.");
+            alert('You are now logged off!');
             _this.setState({ user : null });
           }}
           onLoginFound={function(data){
@@ -91,12 +92,18 @@ export default class App extends Component<Props> {
           />
       </View>
 
+      <Image
+          style={styles.logo}
+          source={require('./picture/logo.png')}
+        />
+
       <Text style={styles.index}>
         {title2}
         <Text style={{color: '#f77f07'}}>{title3}</Text>
         {title4}
         <Text style={{color: '#f77f07'}}>{title5}</Text>
       </Text>
+
       </View>
     );
   }
@@ -109,6 +116,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'steelblue',
   },
+  logo: {
+    width: 270,
+    height: 270,
+    position: 'absolute'
+  },
   index: {
   	fontFamily: 'copperplate',
     fontSize: 30,
@@ -120,7 +132,7 @@ const styles = StyleSheet.create({
   FBbutton: {
     flex: 1,
     backgroundColor: '#3B5998',
-    padding: 13,
+    padding: 14,
     alignItems: 'center'
   },
   FBbutton1: {
