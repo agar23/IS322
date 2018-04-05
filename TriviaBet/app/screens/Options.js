@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator, } from 'react-navigation';
-import styles from './styles.js';
 
 type Props = {};
 export class Options extends Component<Props> {
@@ -38,14 +37,14 @@ export class Options extends Component<Props> {
       		<Text style={styles.index}>
             Options
           </Text>
-      		
+
       </View>
     );
   }
 }
 
 export default OptionsScreen = StackNavigator({
-    Options: { 
+    Options: {
       screen: Options
     },
   },

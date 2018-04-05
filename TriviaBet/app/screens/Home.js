@@ -16,7 +16,7 @@ import React, { Component } from 'react';
 import { StackNavigator, } from 'react-navigation';
 import styles from './styles.js';
 import Play from './Play.js';
-import PlayFriends from './Play.js';
+//import PlayFriends from './Play.js';
 import Options from './Options.js';
 import Profile from './Profile.js';
 
@@ -44,11 +44,11 @@ export class Home extends Component<Props> {
       };
   render() {
     const { navigate } = this.props.navigation;
-    return (     
+    return (
      <View style={styles.container}>
 
         <View style={{flexDirection: 'row'}}>
-          <Image  style={styles.logo} source={require('./images/logo.png')} />
+          <Image  style={styles.logo} source={require('../picture/logo.png')} />
         </View>
 
         <Text style={styles.index}>
@@ -80,7 +80,7 @@ export class Home extends Component<Props> {
 }
 
 export default HomeScreen = StackNavigator({
-    Home: { 
+    Home: {
       screen: Home
     },
     Play: {

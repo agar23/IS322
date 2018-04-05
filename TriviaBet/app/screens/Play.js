@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator, } from 'react-navigation';
-import styles from './styles.js';
 
 type Props = {};
 export class Play extends Component<Props> {
@@ -38,7 +37,7 @@ export class Play extends Component<Props> {
       		<Text style={styles.index}>
             Play
           </Text>
-      		
+
       </View>
     );
   }
@@ -65,14 +64,14 @@ export class PlayFriends extends Component<Props> {
           <Text style={styles.index}>
             PlayFriend
           </Text>
-          
+
       </View>
     );
   }
 }
 
 export default PlayScreen = StackNavigator({
-    Play: { 
+    Play: {
       screen: Play
     },
     PlayFriends: {

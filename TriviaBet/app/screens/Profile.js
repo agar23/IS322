@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator, } from 'react-navigation';
-import styles from './styles.js';
 
 type Props = {};
 export class Profile extends Component<Props> {
@@ -38,14 +37,14 @@ export class Profile extends Component<Props> {
       		<Text style={styles.index}>
             Profile
           </Text>
-      		
+
       </View>
     );
   }
 }
 
 export default ProfileScreen = StackNavigator({
-    Profile: { 
+    Profile: {
       screen: Profile
     },
   },
