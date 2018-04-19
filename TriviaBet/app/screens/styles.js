@@ -22,13 +22,13 @@ export default styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     margin: 10,
-    top: -50,
+    top: -20,
   },
   logo: {
     alignItems: 'center',
     width: 100,
     height: 100,
-    top: -70
+    top: -20
   },
   text: {
     fontFamily: 'copperplate',
