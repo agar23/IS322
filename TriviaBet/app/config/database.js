@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
 import * as firebase from 'firebase';
-
 const firebaseConfig = {
   apiKey: "AIzaSyDk_9NF56VE_LBOXCurthnuhs4cZ1Jpx7A",
   authDomain: "triviabet-194903.firebaseapp.com",
@@ -9,5 +7,5 @@ const firebaseConfig = {
   storageBucket: "triviabet-194903.appspot.com",
   messagingSenderId: "283423432126"
 };
-
-export const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+export default firebaseApp;

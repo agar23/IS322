@@ -16,6 +16,10 @@ export default styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'steelblue',
   },
+  profile: {
+    flex: 1,
+    backgroundColor: 'steelblue',
+  },
   index: {
     fontFamily: 'copperplate',
     fontSize: 30,
@@ -56,4 +60,23 @@ export default styles = StyleSheet.create({
   profileBody: {
 
   },
+  profileFlex: {
+    width: 360,
+    height: 400,
+    backgroundColor: 'white',
+    top: 200
+  },
+  profileEmail: {
+    fontFamily: 'copperplate',
+    textAlign: 'center',
+    fontSize: 20,
+    color: 'grey',
+    top: 20
+  },
+  profileEmail2: {
+    textAlign: 'center',
+    fontSize: 14,
+    color: 'black',
+    top: 22
+  }
 });

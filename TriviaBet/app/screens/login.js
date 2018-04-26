@@ -13,17 +13,8 @@ import { StackNavigator, } from 'react-navigation';
 import PropTypes from 'prop-types';
 import Home from './Home.js';
 var { FBLogin, FBLoginManager } = require('react-native-facebook-login');
-import * as firebase from 'firebase';
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDk_9NF56VE_LBOXCurthnuhs4cZ1Jpx7A",
-  authDomain: "triviabet-194903.firebaseapp.com",
-  databaseURL: "https://triviabet-194903.firebaseio.com",
-  projectId: "triviabet-194903",
-  storageBucket: "triviabet-194903.appspot.com",
-  messagingSenderId: "283423432126"
-};
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+import firebaseApp from '../config/database';
+import * as Keychain from 'react-native-keychain';
 
 const title = "TriviaBet \nTrivia with Stakes";
 const title2 = "Trivia";
@@ -49,9 +40,41 @@ const firebaseRegister = (email, first, last, uName, picture) => {
                     email: email,
                     picture: picture
                 })
+      firebaseApp.database().ref('stats').child(response.user.uid).set({
+                  wins: 0,
+                  played: 0,
+                  credits: 500,
+              })
       }
     });
 };
+
+const getFireUID = (email) => {
+  var query = firebaseApp.database().ref("users").orderByChild('email').equalTo(email);
+  var key;
+  query.once("value").then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var key = childSnapshot.key;
+      setLocalUID(key);
+      });
+    });
+}
+
+const setLocalUID = (uid) => {
+  Keychain.setGenericPassword("JWT", uid)
+     .then(function() {
+       console.log('UID saved successfully!');
+     });
+}
+
+const getLocalUID = () => {
+  Keychain.getGenericPassword()
+    .then(function(credentials) {
+      console.log('Credentials successfully loaded for user:' + credentials.password);
+    }).catch(function(error) {
+      console.log('Keychain couldn\'t be accessed! Maybe no value set?', error);
+    });
+}
 
 export class login extends Component<Props> {
 
@@ -62,6 +85,7 @@ export class login extends Component<Props> {
             .then((user) => {
               console.log(user)
               firebaseRegister(user.email, user.givenName, user.familyName, user.name, user.photo);
+              getFireUID(user.email);
               this.props.navigation.navigate('Home')
             })
             .catch((err) => {
@@ -95,6 +119,7 @@ export class login extends Component<Props> {
            console.log(data);
            _this.setState({ user : data.credentials });
            firebaseRegister(data.profile.email, data.profile.first_name, data.profile.last_name, data.profile.name, data.profile.picture.data.url);
+           getFireUID(data.profile.email);
            navigate('Home')
           }}
           onLogout={function(){
