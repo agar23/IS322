@@ -17,6 +17,8 @@ import { StackNavigator, } from 'react-navigation';
 import firebaseApp from '../config/database';
 import * as Keychain from 'react-native-keychain';
 var { FBLogin, FBLoginManager } = require('react-native-facebook-login');
+import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+
 
 
 const getData = () => {
@@ -119,8 +121,10 @@ static navigationOptions = {
 
 _getCredentials_Photo(){
   var _this = this;
+  var user = GoogleSignin.currentUser();
+  console.log(user);
   FBLoginManager.getCredentials(function(error, data){
-    if (!error) {
+    if (data.credentials != undefined) {
       _this.setState({ token : data.credentials.token,
                        FuserId: data.credentials.userId });
 
@@ -138,6 +142,20 @@ _getCredentials_Photo(){
                         });
                       })
                 .done();
+    } if (user){
+        if (user.photo != null){
+            _this.setState({
+              photo : {
+                url : user.photo
+              },
+           });
+        } else {
+          _this.setState({
+            photo : {
+              url : 'https://quilllegal.com.au/wp-content/uploads/2016/09/empty-profile.jpg'
+            },
+         });
+        }
     } else {
       _this.setState({ token : null,
                        FuserId: null});
@@ -157,8 +175,6 @@ _getCredentials_Photo(){
               style={styles.profilePicture}
               source={{uri: this.state.photo.url}}
             />
-
-
         <View style={styles.profileUpDown}>
             <Text style={styles.profileName}>
              {this.state.name}
