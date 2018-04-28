@@ -79,6 +79,12 @@ export default styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  profileUpDown: {
+    flex: 0.3,
+    backgroundColor: 'steelblue',
+    marginTop: "auto",
+    bottom: 15,
+  },
   profileLeft: {
     backgroundColor: 'white',
     left: 10,
@@ -131,4 +137,18 @@ export default styles = StyleSheet.create({
     fontSize: 20,
     color: 'black',
   },
+  profileName: {
+    textAlign: 'center',
+    fontSize: 20,
+    color: 'white',
+  },
+  profilePicture: {
+    alignSelf: 'center',
+    height: 125,
+    width: 135,
+    borderWidth: 2,
+    borderColor: 'white',
+    borderRadius: 75,
+    top: 15,
+  }
 });

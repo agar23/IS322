@@ -16,6 +16,8 @@ import React, { Component } from 'react';
 import { StackNavigator, } from 'react-navigation';
 import firebaseApp from '../config/database';
 import * as Keychain from 'react-native-keychain';
+var { FBLogin, FBLoginManager } = require('react-native-facebook-login');
+
 
 const getData = () => {
   firebaseApp.database().ref('users').on('value', snap => snap.val())
@@ -29,14 +31,24 @@ export class Profile extends Component<Props> {
         call3: (async () => await this.getCredits())(),
         call4: (async () => await this.getWon())(),
         call5: (async () => await this.getPlayed())(),
+        call6: (async () => await this.getName())(),
+        call7: this._getCredentials_Photo(),
+        token: '',
+        FuserId: '',
         data: 'help',
         uid: '',
         email: '',
         credits: 0,
         won: 0,
         played: 0,
+        name: '',
+        user: '',
+        photo: {
+          url: '',
+          height: '',
+          width: ','
+        },
     };
-
 
 async getLocalUID(){
   try {
@@ -58,6 +70,14 @@ async getEmail(){
     return snapshot.val();
   });
   this.setState({ email: emailV });
+}
+
+async getName(){
+  var userId = await this.getLocalUID();
+  const usernameV = await firebaseApp.database().ref('/users/'+userId+'/username').once('value').then(function(snapshot) {
+    return snapshot.val();
+  });
+  this.setState({ name: usernameV });
 }
 
 async getCredits(){
@@ -84,25 +104,66 @@ async getPlayed(){
   this.setState({ played: playedV });
 }
 
-  static navigationOptions = {
-          title: 'Profile',
-          headerTintColor: '#ffffff',
-          headerStyle: {
-            backgroundColor: 'steelblue',
-            borderBottomColor: '#ffffff',
-            borderBottomWidth: 3,
-          },
-          headerTitleStyle: {
-            fontSize: 18,
-          },
-      };
+static navigationOptions = {
+        title: 'Profile',
+        headerTintColor: '#ffffff',
+        headerStyle: {
+          backgroundColor: 'steelblue',
+          borderBottomColor: '#ffffff',
+          borderBottomWidth: 3,
+        },
+        headerTitleStyle: {
+          fontSize: 18,
+        },
+    };
+
+_getCredentials_Photo(){
+  var _this = this;
+  FBLoginManager.getCredentials(function(error, data){
+    if (!error) {
+      _this.setState({ token : data.credentials.token,
+                       FuserId: data.credentials.userId });
+
+
+       var api = `https://graph.facebook.com/v2.3/${data.credentials.userId}/picture?width=500&redirect=false&access_token=${data.credentials.token}`;
+       fetch(api)
+         .then((response) => response.json())
+         .then((responseData) => {
+           _this.setState({
+                           photo : {
+                             url : responseData.data.url,
+                             height: responseData.data.height,
+                             width: responseData.data.width,
+                           },
+                        });
+                      })
+                .done();
+    } else {
+      _this.setState({ token : null,
+                       FuserId: null});
+    }
+  });
+};
 
   render() {
     const { navigate } = this.props.navigation;
     return (
 
      <View style={styles.profile}>
-        <View style={styles.profileUp}>
+        <View style={styles.profileUp}
+            test={console.log(this.state.photo.url)}>
+
+            <Image
+              style={styles.profilePicture}
+              source={{uri: this.state.photo.url}}
+            />
+
+
+        <View style={styles.profileUpDown}>
+            <Text style={styles.profileName}>
+             {this.state.name}
+            </Text>
+          </View>
         </View>
         <View style={styles.profileDown}>
            <Text style={styles.profileEmail}>
