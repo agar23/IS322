@@ -18,7 +18,6 @@ export default styles = StyleSheet.create({
   },
   profile: {
     flex: 1,
-    backgroundColor: 'steelblue',
   },
   index: {
     fontFamily: 'copperplate',
@@ -60,11 +59,33 @@ export default styles = StyleSheet.create({
   profileBody: {
 
   },
-  profileFlex: {
-    width: 360,
-    height: 400,
+  profileUp: {
+    flex: 1.4,
+    backgroundColor: 'steelblue',
+  },
+  profileDown: {
+    flex: 2,
     backgroundColor: 'white',
-    top: 200
+  },
+  profilefoot: {
+    flex: 0.3,
+    backgroundColor: 'white',
+    top: 55,
+  },
+  profilemid: {
+    flex: 0.5,
+    backgroundColor: 'white',
+    top: 75,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  profileLeft: {
+    backgroundColor: 'white',
+    left: 10,
+  },
+  profileRight: {
+    backgroundColor: 'white',
+    right: 10,
   },
   profileEmail: {
     fontFamily: 'copperplate',
@@ -78,5 +99,36 @@ export default styles = StyleSheet.create({
     fontSize: 14,
     color: 'black',
     top: 22
-  }
+  },
+  profileCredits: {
+    textAlign: 'center',
+    fontSize: 22,
+    color: 'black',
+  },
+  profileCredits2: {
+    textAlign: 'center',
+    fontSize: 20,
+    color: 'black',
+  },
+  profileWon: {
+    textAlign: 'center',
+    fontSize: 22,
+    color: 'black',
+  },
+  profileWon2: {
+    textAlign: 'center',
+    fontSize: 20,
+    color: 'black',
+  },
+  profilePlayed: {
+    textAlign: 'right',
+    fontSize: 22,
+    color: 'black',
+    textAlign: 'center'
+  },
+  profilePlayed2: {
+    textAlign: 'center',
+    fontSize: 20,
+    color: 'black',
+  },
 });
