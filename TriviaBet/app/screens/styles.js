@@ -149,6 +149,6 @@ export default styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'white',
     borderRadius: 75,
-    top: 15,
+    top: 30,
   }
 });
