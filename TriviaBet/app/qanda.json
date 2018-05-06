@@ -1,0 +1,160 @@
+{
+"quiz" : {
+  "react" : {
+      "question1" : {
+        "correctoption" : "option3",
+        "options" : {
+          "option1" : "Java",
+          "option2" : "PHP",
+          "option3" : "Javascript",
+          "option4" : "IOS"
+        },
+        "question" : "React is a ____ library"
+      },
+      "question2" : {
+        "correctoption" : "option8",
+        "options" : {
+            "option5" : "XML",
+            "option6" : "YML",
+            "option7" : "HTML",
+            "option8" : "JSX"
+          },
+        "question" : "____ tag syntax is used in React"
+      },
+      "question3" : {
+        "correctoption" : "option9",
+        "options" : {
+            "option9" : "Single root DOM node",
+            "option10" : "Double root DOM node",
+            "option11" : "Multiple root DOM node",
+            "option12" : "None of the above"
+          },
+        "question" : "Application built with just React usually have ____"
+      },
+      "question4" : {
+        "correctoption" : "option14",
+        "options" : {
+            "option13" : "mutable",
+            "option14" : "immutable",
+            "option15" : "variable",
+            "option16" : "none of the above"
+          },
+        "question" : "React elements are ____"
+      },
+      "question5" : {
+        "correctoption" : "option19",
+        "options" : {
+            "option17" : "functions",
+            "option18" : "array",
+            "option19" : "components",
+            "option20" : "json data"
+          },
+        "question" : "React allows to split UI into independent and reusable pieses of ____"
+       }
+   },
+   "sports":{
+     "question1" : {
+       "correctoption" : "option4",
+       "options" : {
+         "option1" : "New York Bulls",
+         "option2" : "Los Angeles Kings",
+         "option3" : "Golden State Soilders",
+         "option4" : "Huston Rocket"
+       },
+       "question" : "Which one is correct team name in NBA?"
+     },
+     "question2" : {
+       "correctoption" : "option5",
+       "options" : {
+           "option5" : "Usain Bolt",
+           "option6" : "Carl Lewis",
+           "option7" : "Jesse Owens",
+           "option8" : "Justin Gatlin"
+         },
+       "question" : "Which of these famous runners is known as the fastest man alive?"
+     },
+     "question3" : {
+       "correctoption" : "option11",
+       "options" : {
+           "option9" : "20",
+           "option10" : "32",
+           "option11" : "28",
+           "option12" : "24"
+         },
+       "question" : "How many Olympic medals has Michael Phelps won in his career?"
+     },
+     "question4" : {
+       "correctoption" : "option13",
+       "options" : {
+           "option13" : "Uruguay",
+           "option14" : "Brazil",
+           "option15" : "Italy",
+           "option16" : "France"
+         },
+       "question" : "Which country won the first World Cup in 1930?"
+     },
+     "question5" : {
+       "correctoption" : "option18",
+       "options" : {
+           "option17" : "Ty Cobb",
+           "option18" : "Pete Rose",
+           "option19" : "Roger Hornsby",
+           "option20" : "Joe DiMaggio"
+         },
+       "question" : "Which player holds the record for the most consecutive games with a hit?"
+     }
+   },
+   "math":{
+     "question1" : {
+       "correctoption" : "option2",
+       "options" : {
+         "option1" : "76",
+         "option2" : "333",
+         "option3" : "645",
+         "option4" : "254"
+       },
+       "question" : "Solve this. (32 x 8) + 104 - 27"
+     },
+     "question2" : {
+       "correctoption" : "option5",
+       "options" : {
+           "option5" : "15",
+           "option6" : "16",
+           "option7" : "18",
+           "option8" : "20"
+         },
+       "question" : "Which of the following numbers gives 240 when added to its own square?"
+     },
+     "question3" : {
+       "correctoption" : "option11",
+       "options" : {
+           "option9" : "32",
+           "option10" : "9",
+           "option11" : "16",
+           "option12" : "12"
+         },
+       "question" : " If 2 batches of chili will feed 9 people how many batches should you make to feed 72 people"
+     },
+     "question4" : {
+       "correctoption" : "option16",
+       "options" : {
+           "option13" : "360",
+           "option14" : "920",
+           "option15" : "480",
+           "option16" : "720"
+         },
+       "question" : "How many total degrees are there among all the angles of a hexagon?"
+     },
+     "question5" : {
+       "correctoption" : "option19",
+       "options" : {
+           "option17" : "4",
+           "option18" : "8",
+           "option19" : "9",
+           "option20" : "1"
+         },
+       "question" : "What is the 5th digit after the dot in pi?"
+     }
+   },
+ }
+}

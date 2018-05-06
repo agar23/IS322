@@ -8,14 +8,17 @@
   },
   "dependencies": {
     "firebase": "^4.12.1",
+    "font-awesome": "^4.7.0",
     "parse-react": "^0.5.2",
     "react": "16.2.0",
     "react-native": "0.53.0",
+    "react-native-animatable": "^1.2.4",
     "react-native-facebook-login": "^1.6.0",
     "react-native-google-signin": "^0.12.0",
     "react-native-keychain": "^3.0.0-rc.3",
     "react-native-splash-screen": "3.0.6",
     "react-native-tab-view": "0.0.74",
+    "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^1.5.8"
   },
   "devDependencies": {
