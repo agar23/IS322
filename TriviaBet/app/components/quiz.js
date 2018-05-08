@@ -21,14 +21,16 @@ export default class Quiz extends Component {
     this.qno = 0
     this.score = 0
 
-    const jdata = jsonData.quiz.math
+    const cat = props.category
+    const jdata = eval("jsonData" + "." + "quiz" + "." + cat)
     arrnew = Object.keys(jdata).map( function(k) { return jdata[k] });
 
     this.state = {
       question : arrnew[this.qno].question,
       options : arrnew[this.qno].options,
       correctoption : arrnew[this.qno].correctoption,
-      countCheck : 0
+      countCheck : 0,
+      category: props.category,
     }
   }
 

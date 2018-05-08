@@ -10,13 +10,20 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
+  TouchableOpacity,
+  Picker,
+  TextInput
 } from 'react-native';
 import React, { Component } from 'react';
 import { StackNavigator, } from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
+import styles from './styles.js';
+import GamePicker from '../components/gamePicker';
+import Wager from '../components/wager';
 
 type Props = {};
 export class Options extends Component<Props> {
+
   static navigationOptions = {
           title: 'Options',
           headerTintColor: '#ffffff',
@@ -32,9 +39,9 @@ export class Options extends Component<Props> {
   render() {
     const { navigate } = this.props.navigation;
     return (
-    	<View style={styles.container}>
+      <View style={styles.container}>
 
-      		<Text style={styles.index}>
+          <Text style={styles.index}>
             Options
           </Text>
 

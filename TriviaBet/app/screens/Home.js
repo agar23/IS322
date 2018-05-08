@@ -16,6 +16,7 @@ import React, { Component } from 'react';
 import { StackNavigator, } from 'react-navigation';
 import styles from './styles.js';
 import Play from './Play.js';
+import PrePlay from './PrePlay.js';
 //import PlayFriends from './Play.js';
 import Options from './Options.js';
 import Profile from './Profile.js';
@@ -58,7 +59,7 @@ export class Home extends Component<Props> {
           <Text style={{color: '#f77f07'}}>{title.t4}</Text>
         </Text>
 
-        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('Play')}>
+        <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('PrePlay')}>
           <Text style={styles.text}>Play</Text>
         </TouchableOpacity>
 
@@ -91,6 +92,9 @@ export default HomeScreen = StackNavigator({
     },
     Profile: {
       screen: Profile
+    },
+    PrePlay: {
+      screen: PrePlay
     }
   },
   {

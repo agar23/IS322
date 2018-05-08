@@ -150,5 +150,30 @@ export default styles = StyleSheet.create({
     borderColor: 'white',
     borderRadius: 75,
     top: 30,
-  }
+  },
+  text67: {
+      fontSize: 30,
+      alignSelf: 'center',
+      color: 'red',
+      top:90,
+   },
+   mainOptions: {
+       top: 100,
+    },
+   titleOptions: {
+       fontSize: 20,
+       alignSelf: 'center',
+       color: 'black',
+    },
+    pickerOptions: {
+        height: 100,
+        width: 125,
+        alignSelf: 'center',
+     },
+     wagerOptions: {
+         height: 40,
+         width: 150,
+         alignSelf: 'center',
+         top: 50,
+      },
 });

@@ -24,8 +24,9 @@ export class Play extends Component<Props> {
     super(props)
     this.state = {
       quizFinish : false,
-      score: 0
+      score: 0,
     }
+    console.log(props.navigation);
   }
   _onPressBack(){
     const {goBack} = this.props.navigation
@@ -83,14 +84,13 @@ export class Play extends Component<Props> {
       <View style={{flex:1}}>
       <StatusBar barStyle="light-content"/>
 
-
        { this.state.quizFinish ? <View style={styles.container}>
            <View style={styles.circle}>
 
              { this._scoreMessage(this.state.score) }
            </View>
 
-       </View> :  <Quiz quizFinish={(score) => this._quizFinish(score)} /> }
+       </View> :  <Quiz quizFinish={(score) => this._quizFinish(score)} category={this.props.navigation.state.params.user}  /> }
 
       </View>
     );
