@@ -3,10 +3,16 @@ package com.triviabet;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.keychain.KeychainPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import co.apptailor.googlesignin.RNGoogleSigninPackage;  // <--- import
+import com.magus.fblogin.FacebookLoginPackage; // <--- import
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +28,11 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage()
+          new MainReactPackage(),
+            new KeychainPackage(),
+            new SplashScreenReactPackage(),
+          new RNGoogleSigninPackage(), // <-- add this
+          new FacebookLoginPackage() // <------ add the package
       );
     }
 

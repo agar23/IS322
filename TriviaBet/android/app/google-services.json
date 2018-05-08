@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "701608597995",
+    "project_id": "firebase-triviabet"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701608597995:android:a58d18f211c691d2",
+        "android_client_info": {
+          "package_name": "com.triviabet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701608597995-mo196svnsb8v8vh03n87jaarfgk13p5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.triviabet",
+            "certificate_hash": "4423d6b418bae87e3958e94ab55fd4c8f3794d68"
+          }
+        },
+        {
+          "client_id": "701608597995-gdp2lih9avog93kb2kkpt70lifbbahg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkMr7WgvWotGDPoOcKIVjyumxpF2j5CS0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
