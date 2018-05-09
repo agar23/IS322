@@ -22,12 +22,11 @@ import GamePicker from '../components/gamePicker';
 import Wager from '../components/wager';
 
 type Props = {};
-export class Options extends Component<Props> {
+export class PlayFriends extends Component<Props> {
 
   static navigationOptions = {
           title: 'Options',
           headerTintColor: '#ffffff',
-          left: ( <Icon name={'md-arrow-round-back'} onPress={ () => { goBack() } }  /> ),
           headerStyle: {
             backgroundColor: 'steelblue',
             borderBottomColor: '#ffffff',
@@ -43,7 +42,7 @@ export class Options extends Component<Props> {
       <View style={styles.container}>
 
           <Text style={styles.index}>
-            Options
+            Play With Friends
           </Text>
 
       </View>
@@ -51,10 +50,10 @@ export class Options extends Component<Props> {
   }
 }
 
-export default OptionsScreen = StackNavigator({
-    Options: {
-      screen: Options
-    },
+export default PlayFriends = StackNavigator({
+    PlayFriends: {
+      screen: PlayFriends
+    }
   },
   { headerMode: 'none' }
 );

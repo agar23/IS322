@@ -17,6 +17,7 @@ import { StackNavigator, } from 'react-navigation';
 import styles from './styles.js';
 import Play from './Play.js';
 import PrePlay from './PrePlay.js';
+import PlayFriends from './PlayFriends.js';
 //import PlayFriends from './Play.js';
 import Options from './Options.js';
 import Profile from './Profile.js';
@@ -86,6 +87,9 @@ export default HomeScreen = StackNavigator({
     },
     Play: {
       screen: Play
+    },
+    PlayFriends: {
+      screen: PlayFriends
     },
     Options: {
       screen: Options
